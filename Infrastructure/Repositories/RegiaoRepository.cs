@@ -11,9 +11,5 @@ namespace Infrastructure.Repositories
             
         }
 
-        public Regiao? GetByDDD(short DDD)
-        {
-            return _context.Regioes.FirstOrDefault(r => r.DDD == DDD);
-        }
     }
 }

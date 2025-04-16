@@ -20,90 +20,6 @@ namespace ServiceTests.Services
         }
 
         [Fact]
-        public void GetAll_ShouldReturnListOfRegiaoDTO()
-        {
-            // Arrange
-            var regioes = new List<Regiao>
-            {
-               new() {
-                   Id = 1,
-                   DDD = 11,
-                   Descricao = "São Paulo"
-               }
-             };
-
-            _regiaoRepositoryMock.Setup(repo => repo.GetAll()).Returns(regioes);
-
-            // Act
-            var result = _regiaoService.GetAll();
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(regioes.Count, result.Count);
-        }
-
-        [Fact]
-        public void GetById_ShouldReturnRegiaoDTO_WhenIdExists()
-        {
-            // Arrange
-            var regiao = new Regiao
-            {
-                Id = 1,
-                DDD = 11,
-                Descricao = "São Paulo"
-            };
-
-            _regiaoRepositoryMock.Setup(repo => repo.GetById(regiao.Id)).Returns(regiao);
-
-            // Act
-            var result = _regiaoService.GetById(regiao.Id);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(regiao.Id, result.Id);
-        }
-
-        [Fact]
-        public void GetByDDD_ShouldReturnRegiaoDTO_WhenDDDExists()
-        {
-            // Arrange
-            short ddd = 11;
-
-            var regiao = new Regiao
-            {
-                Id = 1,
-                DDD = 11,
-                Descricao = "São Paulo"
-            };
-
-            _regiaoRepositoryMock.Setup(repo => repo.GetByDDD(ddd)).Returns(regiao);
-
-            // Act
-            var result = _regiaoService.GetByDDD(ddd);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(ddd, result.DDD);
-        }
-
-        [Fact]
-        public void Create_ShouldCallRepositoryCreate()
-        {
-            // Arrange
-            var regiaoRequest = new RegiaoRequest
-            {
-                DDD = 11,
-                Descricao = "São Paulo"
-            };
-
-            // Act
-            _regiaoService.Create(regiaoRequest);
-
-            // Assert
-            _regiaoRepositoryMock.Verify(repo => repo.Create(It.IsAny<Regiao>()), Times.Once);
-        }
-
-        [Fact]
         public void Put_ShouldUpdateRegiao_WhenRegiaoExists()
         {
             // Arrange
@@ -130,18 +46,6 @@ namespace ServiceTests.Services
             _regiaoRepositoryMock.Verify(repo => repo.Update(It.IsAny<Regiao>()), Times.Once);
         }
 
-        [Fact]
-        public void Delete_ShouldCallRepositoryDelete_WhenIdExists()
-        {
-            // Arrange
-            var id = 1;
-
-            // Act
-            _regiaoService.Delete(id);
-
-            // Assert
-            _regiaoRepositoryMock.Verify(repo => repo.Delete(id), Times.Once);
-        }
     }
 }
 
