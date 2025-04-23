@@ -1,6 +1,5 @@
 ﻿using Core.Entities;
 using Core.Interfaces.Repositories;
-using Core.Requests.Create;
 using Core.Requests.Update;
 using Core.Services;
 using Moq;

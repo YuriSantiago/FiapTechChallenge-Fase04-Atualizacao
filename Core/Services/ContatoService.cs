@@ -1,10 +1,6 @@
-﻿using Core.DTOs;
-using Core.Entities;
-using Core.Interfaces.Repositories;
+﻿using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
-using Core.Requests.Create;
 using Core.Requests.Update;
-using Microsoft.EntityFrameworkCore;
 
 namespace Core.Services
 {
