@@ -13,6 +13,7 @@ namespace AtualizacaoProdutor.Controllers
         private readonly IBus _bus;
         private readonly IConfiguration _configuration;
 
+        // teste de CI
         public ContatoController(IBus bus, IConfiguration configuration)
         {
             _bus = bus;
